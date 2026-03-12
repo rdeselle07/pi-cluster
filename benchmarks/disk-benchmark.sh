@@ -55,6 +55,8 @@ if [ ! -f $IOZONE_INSTALL_PATH/$IOZONE_VERSION/src/current/iozone ]; then
   case $CURRENT_ARCH in
     arm64|aarch64)
       if [[ $CURRENT_SYSTEM == 'Darwin' ]]; then
+        # NOTE: on modern Apple Silicon Macs, a patch may be required:
+        # https://github.com/geerlingguy/sbc-reviews/issues/102#issuecomment-4047219198
         make --quiet macosx
       else
         make --quiet linux-arm
